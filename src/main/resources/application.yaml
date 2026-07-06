@@ -13,6 +13,17 @@ spring:
         format_sql: true
     hibernate:
       ddl-auto: update
+  cache:
+    type: caffeine
+    caffeine:
+      spec: expireAfterWrite=10m,maximumSize=500
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: gemma3:4b
+
 logging:
   level:
     org:
